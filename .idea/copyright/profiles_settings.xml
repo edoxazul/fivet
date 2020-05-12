@@ -1,7 +1,7 @@
 <component name="CopyrightManager">
-  <settings default="mit">
+  <settings default="Eduardo">
     <module2copyright>
-      <element module="All" copyright="mit" />
+      <element module="All" copyright="Eduardo" />
     </module2copyright>
   </settings>
 </component>
