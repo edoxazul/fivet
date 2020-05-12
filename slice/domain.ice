@@ -117,6 +117,24 @@ module model {
      }
 
      /**
+      * The Sexo
+      */
+      enum Sexo{
+            MACHO,
+            HEMBRA
+      }
+
+     /**
+      * The Tipo de Paciente
+      */
+      enum TipoPaciente{
+            INTERNO,
+            EXTERNO
+
+      }
+
+
+     /**
       * The control
       */
      class Control {
@@ -186,7 +204,24 @@ module model {
          string fechaExamen;
      }
 
+     /**
+     * The Contratos
+     */
+     interface Contratos {
+        /**
+         * Dado un numero de ficha, retorna la ficha asociada
+         * @param numero de la ficha a obtener.
+         * @return the Ficha.
+         */
+        Ficha obtenerFicha(int numero);
+        Control ingresarControl(Control control);
+        Persona ingresarDuenio(Persona persona);
 
+
+
+
+        //TODO: escribir toda las operaciones del sistema
+     }
 
     /**
      * The base system.
