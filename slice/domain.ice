@@ -60,6 +60,22 @@ module model {
      }
 
     /**
+     * The Sexo
+     */
+     enum Sexo {
+             MACHO,
+             HEMBRA
+     }
+
+    /**
+     * The Tipo de Paciente
+     */
+     enum TipoPaciente {
+             INTERNO,
+             EXTERNO
+     }
+
+    /**
      * The Ficha
      */
      class Ficha{
@@ -100,9 +116,9 @@ module model {
          string raza;
 
         /**
-         * Sexo : macho
+         * Sexo : macho / hembra
          */
-         string sexo;
+         Sexo sexo;
 
         /**
          * Color :rojo cobrizo
@@ -112,26 +128,11 @@ module model {
         /**
          * Tipo : interno
          */
-         string tipo;
+         TipoPaciente tipoPaciente;
 
      }
 
-     /**
-      * The Sexo
-      */
-      enum Sexo{
-            MACHO,
-            HEMBRA
-      }
 
-     /**
-      * The Tipo de Paciente
-      */
-      enum TipoPaciente{
-            INTERNO,
-            EXTERNO
-
-      }
 
 
      /**
@@ -214,11 +215,10 @@ module model {
          * @return the Ficha.
          */
         Ficha obtenerFicha(int numero);
+        Ficha registrarFicha(Ficha ficha);
         Control ingresarControl(Control control);
-        Persona ingresarDuenio(Persona persona);
-
-
-
+        Persona ingresarPersona(Persona persona);
+        Ficha agregarFoto(string foto);
 
         //TODO: escribir toda las operaciones del sistema
      }
