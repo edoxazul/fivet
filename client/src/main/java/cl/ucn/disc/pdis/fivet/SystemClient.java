@@ -51,29 +51,30 @@ public final class SystemClient {
 
         log.debug("Starting the Client ..");
 
+        // The communicator
         try (Communicator communicator = Util.initialize(getInitializationData(args))) {
 
-            // Running in port 8080
-            ObjectPrx theProxy = communicator.stringToProxy(TheSystem.class.getName() + ":default -p 8080 -z");
+            // The name of interface
+            String name = TheSystem.class.getSimpleName();
+            log.debug("Proxying <{}> ...",name);
 
+            // The proxy for TheSystem
+            ObjectPrx theProxy = communicator.stringToProxy(name + ":default -p 8080 -z");
+
+            // Tying to cast the proxy
             TheSystemPrx theSystem = TheSystemPrx.checkedCast(theProxy);
 
+            // Can't find theSystem
             if (theSystem == null) {
                 throw new IllegalStateException("Invalid TheSystem! (wrong proxy?)");
             }
-
+            // Get the delay
             long delay = theSystem.getDelay(System.currentTimeMillis());
             log.debug("Delay: {}ms.", delay);
-
-            /*
-            EnginePrx engine = EnginePrx.checkedCast(proxy);
-
-            */
-
         }
-
         log.debug("Done.");
     }
+
 
     /**
      * @param args to use as source.
